@@ -208,7 +208,7 @@
                         
                         if (this.lastTouchDistance > 0) {
                             const zoomRatio = currentDistance / this.lastTouchDistance;
-                            const newScale = Math.max(0.1, Math.min(15, this.scale * zoomRatio));
+                            const newScale = Math.max(0.1, Math.min(30, this.scale * zoomRatio));
                             
                             if (newScale !== this.scale) {
                                 // Zoom towards touch center
@@ -244,7 +244,7 @@
                     e.preventDefault();
                     
                     const zoomFactor = e.deltaY > 0 ? 0.9 : 1.1;
-                    const newScale = Math.max(0.1, Math.min(15, this.scale * zoomFactor));
+                    const newScale = Math.max(0.1, Math.min(30, this.scale * zoomFactor));
                     
                     if (newScale !== this.scale) {
                         // Zoom towards mouse cursor
@@ -263,7 +263,7 @@
 
                 // Zoom buttons
                 document.getElementById('zoomIn').addEventListener('click', () => {
-                    this.scale = Math.min(15, this.scale * 1.2);
+                    this.scale = Math.min(30, this.scale * 1.2);
                     this.updateDisplay();
                 });
 
