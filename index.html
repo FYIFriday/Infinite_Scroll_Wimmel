@@ -1,4 +1,4 @@
-<infinite_scroll html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,7 +17,6 @@
             width: 100vw;
             height: 100vh;
             cursor: grab;
-            /* Replace this with the path to your tileable image */
             background-image: url('infinite_scroll.png');
             background-repeat: repeat;
             background-position: 0px 0px;
@@ -122,7 +121,7 @@
                 this.lastY = 0;
                 this.offsetX = 0;
                 this.offsetY = 0;
-                this.scale = 1;
+                this.scale = 2.5;
                 
                 this.initEventListeners();
                 this.updateDisplay();
@@ -191,7 +190,7 @@
                     e.preventDefault();
                     
                     const zoomFactor = e.deltaY > 0 ? 0.9 : 1.1;
-                    const newScale = Math.max(0.1, Math.min(5, this.scale * zoomFactor));
+                    const newScale = Math.max(0.1, Math.min(15, this.scale * zoomFactor));
                     
                     if (newScale !== this.scale) {
                         // Zoom towards mouse cursor
@@ -210,7 +209,7 @@
 
                 // Zoom buttons
                 document.getElementById('zoomIn').addEventListener('click', () => {
-                    this.scale = Math.min(5, this.scale * 1.2);
+                    this.scale = Math.min(15, this.scale * 1.2);
                     this.updateDisplay();
                 });
 
@@ -220,7 +219,7 @@
                 });
 
                 document.getElementById('resetZoom').addEventListener('click', () => {
-                    this.scale = 1;
+                    this.scale = 2.5;
                     this.offsetX = 0;
                     this.offsetY = 0;
                     this.updateDisplay();
